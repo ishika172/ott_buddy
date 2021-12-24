@@ -66,8 +66,8 @@ function edittask(index){
     let taskObj = JSON.parse(webtask); 
     
     
-    addtaskinput.value = taskObj[index]['task_name'];
-    addtaskinput1.value = document.getElementById("addtaskinput").innerHTML;
+    addtaskinput.value = document.getElementById("addtaskinput").innerHTML;
+    addtaskinput1.value =  taskObj[index]['task_name'];
     addtaskbtn.style.display="none";
     savetaskbtn.style.display="block";
 }
@@ -91,8 +91,6 @@ savetaskbtn.addEventListener("click", function(){
     savetaskbtn.style.display="none";
     addtaskbtn.style.display="block";
     localStorage.setItem("localtask", JSON.stringify(taskObj));
-    addtaskinput.value='';
-    addtaskinput1.value='';
     showtask();
 })
 // deleteitem
@@ -119,11 +117,12 @@ deleteallbtn.addEventListener("click", function(){
         taskObj = JSON.parse(webtask);
         taskObj = [];
     }
-    addtaskinput.value='';
-    addtaskinput1.value='';
+    addtaskinput.value = '';
+    addtaskinput1.value = '';
     savetaskbtn.style.display="none";
     addtaskbtn.style.display="block";
     localStorage.setItem("localtask", JSON.stringify(taskObj));
     showtask();
 
 })
+
